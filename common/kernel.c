@@ -1,3 +1,20 @@
+/*----------------------------------------------------------------
+
+*
+
+* Programación avanzada: Proyecto final - UNIX C Shell
+
+* Fecha: 21-Nov-2020
+
+* Autor: A01702832 Juan Jose Olivera Loyola
+
+* Modulo: kernel.c
+
+* Descripcion: Implementacion del kernel para procesar linea de comandos
+
+*
+
+*--------------------------------------------------------------*/
 #include "constants.h"
 #include "logging.h"
 #include "kernel.h"
@@ -8,7 +25,6 @@
 #include <wait.h>
 #include <stdlib.h>
 
-// int spawnProcess(char *name, char **argv);
 int spawnProcesses(char **batches, int n);
 int spawnProcess(char *cmdLine);
 
@@ -26,26 +42,11 @@ void kernelLine(char *lineStr)
 
     spawnProcesses(batches, n);
 
-    // Break Command into command arguments and spawn
-    // char *eArgs[MAX_LINE_LEN];
-    // splitStr(eArgs, batches[0], " ");
-    // spawnProcess(eArgs[0], eArgs);
 }
 
-// int spawnProcess(char *name, char **argv)
 int spawnProcess(char *cmdLine)
 {
     int pid;
-    // if ((pid = vfork()) < 0) {
-    //     KERNEL_ERROR("Could not vfork()!");
-    //     //fprintf(stderr, "%s: Could not vfork()!\n", "KERNEL_ERROR");
-    // } else if (pid == 0) {
-    //     execvp(name, argv);
-    //     fprintf(stderr, "%s: Could not exec(%s)!\n", "KERNEL_ERROR", name);
-    //     _exit(-1);
-    // } else {
-    //     waitpid(pid, NULL, 0);
-    // }
 
     char *eArgs[MAX_LINE_LEN];
     splitStr(eArgs, cmdLine, " ");
@@ -61,7 +62,7 @@ int spawnProcess(char *cmdLine)
         return pid;
     }
 }
-//ls -la; cat common/utils.h
+
 int spawnProcesses(char **batches, int n)
 {
     int pids[n], pid;
@@ -87,16 +88,6 @@ int spawnProcesses(char **batches, int n)
         }
 
         pids[i] = spawnProcess(cleanedLine);
-
-        // if ((pid = fork()) < 0) {
-        //     KERNEL_ERROR("Could not fork()!");
-        // } else if (pid == 0) {
-        //     execvp(name, argv);
-        //     fprintf(stderr, "%s: Could not exec(%s)!\n", "KERNEL_ERROR", name);
-        //     _exit(-1);
-        // } else {
-        //     pids[i] = pid;
-        // }
     }
 
     for (i = 0; i < n; i++) {

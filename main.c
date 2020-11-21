@@ -1,3 +1,20 @@
+/*----------------------------------------------------------------
+
+*
+
+* Programación avanzada: Proyecto final - UNIX C Shell
+
+* Fecha: 21-Nov-2020
+
+* Autor: A01702832 Juan Jose Olivera Loyola
+
+* Modulo: main.c
+
+* Descripcion: Punto de entrada que decide que modo ejecutar
+
+*
+
+*--------------------------------------------------------------*/
 #include <stdio.h>
 #include "prompt.h"
 #include "fileinterpreter.h"

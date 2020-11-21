@@ -1,3 +1,20 @@
+/*----------------------------------------------------------------
+
+*
+
+* Programación avanzada: Proyecto final - UNIX C Shell
+
+* Fecha: 21-Nov-2020
+
+* Autor: A01702832 Juan Jose Olivera Loyola
+
+* Modulo: constants.h
+
+* Descripcion: Constantes usadas en el proyecto
+
+*
+
+*--------------------------------------------------------------*/
 #ifndef _CONSTANTS_H
 #define _CONSTANTS_H
 

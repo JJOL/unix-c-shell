@@ -1,3 +1,20 @@
+/*----------------------------------------------------------------
+
+*
+
+* Programación avanzada: Proyecto final - UNIX C Shell
+
+* Fecha: 21-Nov-2020
+
+* Autor: A01702832 Juan Jose Olivera Loyola
+
+* Modulo: promph.h
+
+* Descripcion: Implementacion de la funciones usadas para el shell interactivo
+
+*
+
+*--------------------------------------------------------------*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

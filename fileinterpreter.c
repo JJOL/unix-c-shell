@@ -7,6 +7,23 @@
 #include "common/kernel.h"
 #include "fileinterpreter.h"
 
+/*----------------------------------------------------------------
+
+*
+
+* Programación avanzada: Proyecto final - UNIX C Shell
+
+* Fecha: 21-Nov-2020
+
+* Autor: A01702832 Juan Jose Olivera Loyola
+
+* Modulo: fileinterpreter.c
+
+* Descripcion: Implementacion de la funcion interpretFile para correr un archivo de comandos
+
+*
+
+*--------------------------------------------------------------*/
 void interpretFile(char *fName)
 {
     int fd, nBytesRead, linePos;

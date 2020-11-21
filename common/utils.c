@@ -1,7 +1,23 @@
 #include "utils.h"
 #include <string.h>
 
-#include <stdio.h>
+
+/*----------------------------------------------------------------
+
+*
+
+* Programación avanzada: Proyecto final - UNIX C Shell
+
+* Fecha: 21-Nov-2020
+
+* Autor: A01702832 Juan Jose Olivera Loyola
+
+* Modulo: utils.c
+
+* Descripcion: Implementacion de funciones de utileria de string de comandos
+*
+
+*--------------------------------------------------------------*/#include <stdio.h>
 
 void cleanInputStr(char *destStr, char *srcStr)
 {
