@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <limits.h>
 #include "prompt.h"
 #include "common/kernel.h"
 #include "common/utils.h"
 #include "common/constants.h"
+#include "common/logging.h"
 
 char ps1[MAX_PS1_LEN];
+char dirPath[PATH_MAX];
 int running;
 
 void beginPrompt()
@@ -17,10 +21,12 @@ void beginPrompt()
     // Init Shell Settings and props
     running = 1;
     strcpy(ps1, "SuperSHELL");
+    getcwd(dirPath, PATH_MAX);
 
     printf("Welcome to the CLI Prompt!\n");
     do {
-        printf("%s> ", ps1);
+        
+        printf(C_R"%s"C_RST":"C_Y"%s"C_RST"> ", ps1, dirPath);
 
         // Get Input Line and remove \n
         fgets(rawLineStr, MAX_LINE_LEN, stdin);
@@ -60,6 +66,10 @@ int shellCmd(char *lineStr)
         cmdPS1(lineStr);
         return 0;
     }
+    else if (strncmp(CD_CMD, lineStr, strlen(CD_CMD)) == 0) {
+        cmdCD(lineStr);
+        return 0;
+    }
     return -1;
 }
 
@@ -67,4 +77,24 @@ int shellCmd(char *lineStr)
 void cmdPS1(char *lineStr)
 {
     getVal(lineStr, ps1);
+}
+
+void cmdCD(char *lineStr)
+{
+    char relPath[MAX_LINE_LEN];
+    int offset, i;
+
+    offset = strlen(CD_CMD) + 1;
+    i = 0;
+    do {
+        relPath[i] = lineStr[offset + i];
+        i++;
+    } while (lineStr[i] != '\0');
+
+    if (chdir(relPath) < 0) {
+        USER_ERROR("Can not cd into specified path!")
+        return;
+    }
+
+    getcwd(dirPath, PATH_MAX);
 }

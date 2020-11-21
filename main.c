@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "prompt.h"
 #include "fileinterpreter.h"
-#include "common/utils.h"
 
 int main(int argc, char *argv[])
 {

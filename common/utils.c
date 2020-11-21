@@ -64,3 +64,13 @@ void splitStr(char **list, char *str, const char *DELIMITERS)
         list[i++] = token;
     } while(token != NULL);
 }
+
+int countArguments(char **list)
+{
+    int count;
+    count = 0;
+
+    while (list[count] != NULL) count++;
+
+    return count;
+}

@@ -4,4 +4,5 @@ void beginPrompt();
 void processLine(char *lineStr);
 int shellCmd(char *lineStr);
 void cmdPS1(char *lineStr);
+void cmdCD(char *lineStr);
 #endif

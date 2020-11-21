@@ -3,4 +3,5 @@
 void cleanInputStr(char *destStr, char *srcStr);
 void splitStr(char **list, char *str, const char *DELIMITERS);
 void getVal(char *str, char* val);
+int countArguments(char **args);
 #endif
