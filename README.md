@@ -8,5 +8,5 @@ Usando make en Linux:
 ```
 O manualmente:
 ```shell
-./gcc gcc main.c prompt.c fileinterpreter.c common/kernel.c common/utils.c -o shell
+./gcc main.c prompt.c fileinterpreter.c common/kernel.c common/utils.c -o shell
 ```
