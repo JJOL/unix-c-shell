@@ -38,6 +38,7 @@ void interpretFile(char *fName)
     while ((nBytesRead = read(fd, buff, 1)) > 0) {
         if (buff[0] == '\n' || buff[0] == '\r') {
             lineStr[linePos] = '\0';
+            printf(C_Y"%s"C_RST"\n", lineStr);
             kernelLine(lineStr);
             linePos = 0;
         } else {
@@ -47,6 +48,7 @@ void interpretFile(char *fName)
 
     // Execute to clean last segment without \n
     lineStr[linePos] = '\0';
+    printf(C_Y"%s"C_RST"\n", lineStr);
     kernelLine(lineStr);
 
 
